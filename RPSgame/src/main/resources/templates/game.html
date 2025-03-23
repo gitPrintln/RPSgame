@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/layout-1 }">
+
+<div layout:fragment="content" align="center">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    
+    <style>
+    /* 선택된 버튼의 색깔 바꿔줌 */
+	.selected {
+	    background-color: DodgerBlue;
+	    color: white;
+	}
+	#myDiv button:hover {
+            background-color: lightgray;
+            cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+	<div>
+    	<button onclick="window.location.href='/'">Home</button>
+    </div>
+	<h4>아래 중에서 하나를 선택하세요.(여러번 가능)</h4>
+	<div id="myDiv">
+    	<label>내가 낼 것: </label>
+	    <button id="sBtn" type="button">가위</button>
+	    <button id="rBtn" type="button">바위</button>
+	    <button id="pBtn" type="button">보</button>
+	</div>
+    <div id="computerDiv">
+    	<label>컴퓨터가 낸 것: </label>
+    	<input type="button" id="computerSbtn" value="가위"/>
+    	<input type="button" id="computerRbtn" value="바위"/>
+    	<input type="button" id="computerPbtn" value="보"/>
+    </div>
+    <div id="resultDiv">
+    	<span>결과 : </span>
+    </div>
+
+	
+<th:block layout:fragment="script">
+	<!-- Ajax -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script th:src="@{ /js/game.js }"></script>	
+</th:block>
+</body>
+</div>
+</html>

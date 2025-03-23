@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{ layout/layout-1 }">
+
+<div layout:fragment="content" align="center">
+<head>
+    <meta charset="UTF-8">
+    <title>가위바위보 게임</title>
+    
+</head>
+<body>
+    <h1>안녕하세요!</h1>
+    <div>
+    	<button onclick="window.location.href='/game'">game 시작하기</button>
+    </div>
+<th:block layout:fragment="script">
+	
+</th:block>
+</body>
+</div>
+</html>
