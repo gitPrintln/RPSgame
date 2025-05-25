@@ -1,20 +1,20 @@
-package com.rps.game.service;
+package basicGame;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.springframework.stereotype.Service;
-
 import lombok.extern.slf4j.Slf4j;
 
-@Service
 @Slf4j
-public class GameService {
+public class BasicGame {
 
     private Map<String, Integer> rpsMap = new HashMap<>();
+    
+    public List<String> rpsModel = Arrays.asList("가위", "바위", "보");
     
     private void addMap() {
         rpsMap.put("가위", 3);
@@ -44,7 +44,11 @@ public class GameService {
         String returnvalue = computer == me ? "비김" : (me % 3 + 1) == computer ? "이김" : "짐";
     
         // 결과 출력
-        System.out.println("내가 뽑은 " + rps + ", 컴퓨터가 뽑은 " + computerValue + ": 내가 " + returnvalue);
+        if(!returnvalue.equals("비김")) {
+            System.out.println("내가 뽑은 " + rps + ", 컴퓨터가 뽑은 " + computerValue + ": 내가 " + returnvalue);
+        } else {
+            System.out.println("내가 뽑은 " + rps + ", 컴퓨터가 뽑은 " + computerValue + ": " + returnvalue);
+        }
         
         // list[0]: 컴퓨터가 뽑은 값, list[1]: 게임 결과값을 전달
         List<String> computerReturn = new ArrayList<>();
